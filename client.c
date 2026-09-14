@@ -17,10 +17,10 @@
 // функция вывода версии
 static void print_version(void) {
     printf("%s\n", PROGRAM_NAME);
-    printf("Автор: Спицына Полина Николаевна\n");
-    printf("Группа: N3246\n");
-    printf("Вариант: 23\n");
+    printf("Автор: Спицына Полина\n");
+    printf("Назначение: преобразование выражений в постфиксную запись\n");
     printf("Транспорт: TCP\n");
+    printf("Многозадачность: fork\n");
 }
 
 // функция вывода справки
@@ -81,9 +81,9 @@ static int write_all(int fd, const char *s) {
 
 int main(int argc, char *argv[]) {
     // берем айпи-адрес сервера (если переменная окружения задана, то используем ее)
-    const char *addr = getenv("lab3ADDR") ? getenv("lab3ADDR") : DEFAULT_ADDR;
+    const char *addr = getenv("SERVER_ADDR") ? getenv("SERVER_ADDR") : DEFAULT_ADDR;
     // аналогично берем порт
-    const char *port_str = getenv("lab3PORT") ? getenv("lab3PORT") : DEFAULT_PORT;
+    const char *port_str = getenv("SERVER_PORT") ? getenv("SERVER_PORT") : DEFAULT_PORT;
     int opt; // найденная опция
     int sock_fd; // файловый дескриптор сокета
     struct sockaddr_in server_addr; // структура с адресов сервера (айпи и порт)

@@ -3,10 +3,10 @@
 *.exe
 *.a
 *.so
-lab3pnsN3246_server
-lab3pnsN3246_client
+server
+client
 *.log
-lab3_test.log
+test.log
 server.pid
 *.pid
 valgrind.txt
