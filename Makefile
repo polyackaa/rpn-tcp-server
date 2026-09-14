@@ -1,21 +1,21 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -O3 -fanalyzer
-SERVER = lab3pnsN3246_server
-CLIENT = lab3pnsN3246_client
+SERVER = server
+CLIENT = client
 
 .PHONY: all clean test valgrind 
 
 all: $(SERVER) $(CLIENT)
 
-$(SERVER): lab3pnsN3246_server.c common.h
-	$(CC) $(CFLAGS) lab3pnsN3246_server.c -o $(SERVER)
+$(SERVER): server.c common.h
+	$(CC) $(CFLAGS) server.c -o $(SERVER)
 
-$(CLIENT): lab3pnsN3246_client.c common.h
-	$(CC) $(CFLAGS) lab3pnsN3246_client.c -o $(CLIENT)
+$(CLIENT): client.c common.h
+	$(CC) $(CFLAGS) client.c -o $(CLIENT)
 
 test: all
 	@echo "=== Запуск сервера ==="
-	./$(SERVER) -a 127.0.0.1 -p 5555 -l ./lab3_test.log & echo $$! > server.pid
+	./$(SERVER) -a 127.0.0.1 -p 5555 -l ./test.log & echo $$! > server.pid
 	@sleep 1
 	@echo "=== Тест 1 ==="
 	./$(CLIENT) -a 127.0.0.1 -p 5555 "2 + 3 * 4"
@@ -36,4 +36,4 @@ valgrind: all
 	valgrind --leak-check=full --show-leak-kinds=all ./$(CLIENT) -a 127.0.0.1 -p 5555 "2 + 3 * 4" > valgrind.txt 2>&1 || true
 
 clean:
-	rm -f $(SERVER) $(CLIENT) server.pid lab3_test.log 
+	rm -f $(SERVER) $(CLIENT) server.pid test.log 

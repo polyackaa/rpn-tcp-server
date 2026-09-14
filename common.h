@@ -3,7 +3,7 @@
 
 #define DEFAULT_ADDR "127.0.0.1"
 #define DEFAULT_PORT "5555"
-#define DEFAULT_LOGFILE "/tmp/lab3.log"
+#define DEFAULT_LOGFILE "/tmp/server.log"
 #define MAX_BACKLOG 16
 
 #define ERR_BAD_REQUEST 1

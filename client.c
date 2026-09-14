@@ -12,7 +12,7 @@
 
 #include "common.h" // общий файл с константами
 
-#define PROGRAM_NAME "lab3pnsN3246_client"
+#define PROGRAM_NAME "client"
 
 // функция вывода версии
 static void print_version(void) {
