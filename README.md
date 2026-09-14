@@ -43,7 +43,8 @@ make all
 Пример:
 
 ```bash
-./server -a 127.0.0.1 -p 5555 -l ./lab3.log
+./server -a 127.0.0.1 -p 5555 -l ./server.log
+```
   
 ## Запуск клиента  
 
